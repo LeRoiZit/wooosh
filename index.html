@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">Wooosh — Motion Blur en temps réel pour Windows</title>
+  <meta name="description" content="Wooosh ajoute un Motion Blur en temps réel par-dessus vos jeux, calculé sur la carte graphique.">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="#">
+      <img src="images/logo.svg" alt="" width="32" height="32">
+      <span>wooosh</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#fonctions" data-i18n="nav.features">Fonctions</a>
+      <a href="#comparaison" data-i18n="nav.compare">Avant / après</a>
+      <a href="#tarifs" data-i18n="nav.pricing">Tarifs</a>
+      <a href="#faq" data-i18n="nav.faq">Questions</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr">FR</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+    <a class="btn btn-small" href="#tarifs" data-i18n="nav.get">Obtenir Wooosh</a>
+  </header>
+
+  <main>
+    <!-- Héros -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Pour Windows 10 et 11</p>
+        <h1 data-i18n="hero.title">Chaque mouvement,<br>plus fluide.</h1>
+        <p class="lead" data-i18n="hero.lead">Wooosh ajoute un Motion Blur en temps réel par-dessus vos jeux. Tout est calculé sur la carte graphique, en une fraction de milliseconde.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#tarifs" data-i18n="hero.cta">Obtenir Wooosh</a>
+          <a class="btn btn-ghost" href="#comparaison" data-i18n="hero.see">Voir la différence</a>
+        </div>
+      </div>
+
+      <!-- Démonstration interactive : vrai flou de mouvement réglable, boule à attraper (demo.js) -->
+      <div class="demo">
+        <div class="demo-track">
+          <canvas class="demo-canvas" aria-hidden="true"></canvas>
+          <span class="demo-hint" data-i18n="hero.demo.hint">Attrapez la boule et lancez-la</span>
+        </div>
+        <div class="demo-controls">
+          <label class="switch">
+            <input type="checkbox" class="demo-toggle" checked>
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span>Motion Blur</span>
+          </label>
+          <label class="demo-slider">
+            <span data-i18n="hero.demo.intensity">Intensité</span>
+            <input type="range" class="demo-intensity" min="0" max="100" value="60">
+            <output class="demo-value">60 %</output>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Les écrans de l'application : carrousel horizontal, chaque fenêtre se tourne en 3D à la souris -->
+    <section class="gallery" aria-roledescription="carrousel" data-i18n-aria="gallery.aria" aria-label="Les écrans de Wooosh">
+      <div class="gallery-sticky">
+      <div class="gallery-head">
+        <div class="gallery-tabs">
+        <button type="button" class="gallery-tab" data-slide="0" data-i18n="gallery.accueil.name">Accueil</button>
+        <button type="button" class="gallery-tab" data-slide="1" data-i18n="gallery.motionblur.name">Motion Blur</button>
+        <button type="button" class="gallery-tab" data-slide="2" data-i18n="gallery.viseur.name">Crosshair Protection</button>
+        <button type="button" class="gallery-tab" data-slide="3" data-i18n="gallery.perfs.name">Performances</button>
+        <button type="button" class="gallery-tab" data-slide="4" data-i18n="gallery.parametres.name">Paramètres</button>
+        </div>
+        <div class="gallery-arrows">
+          <button type="button" class="arrow" data-dir="-1" data-i18n-aria="gallery.prev" aria-label="Écran précédent">&larr;</button>
+          <button type="button" class="arrow" data-dir="1" data-i18n-aria="gallery.next" aria-label="Écran suivant">&rarr;</button>
+        </div>
+      </div>
+      <div class="gallery-viewport">
+      <div class="gallery-track">
+        <figure class="slide">
+          <div class="win" tabindex="0">
+            <picture>
+              <source srcset="images/app-accueil-clair.png" media="(prefers-color-scheme: light)">
+              <img src="images/app-accueil-sombre.png" alt="" width="1380" height="880" decoding="async" draggable="false">
+            </picture>
+            <span class="win-glare"></span>
+          </div>
+          <figcaption><strong data-i18n="gallery.accueil.name">Accueil</strong> <span data-i18n="gallery.accueil.text">Tout l'essentiel sur un seul écran : Motion Blur, protection du viseur et performances.</span></figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="win" tabindex="0">
+            <picture>
+              <source srcset="images/app-motionblur-clair.png" media="(prefers-color-scheme: light)">
+              <img src="images/app-motionblur-sombre.png" alt="" width="1380" height="880" decoding="async" draggable="false">
+            </picture>
+            <span class="win-glare"></span>
+          </div>
+          <figcaption><strong data-i18n="gallery.motionblur.name">Motion Blur</strong> <span data-i18n="gallery.motionblur.text">Choisissez la technologie, l'intensité, et le mode Flick pour rester net en visant.</span></figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="win" tabindex="0">
+            <picture>
+              <source srcset="images/app-viseur-clair.png" media="(prefers-color-scheme: light)">
+              <img src="images/app-viseur-sombre.png" alt="" width="1380" height="880" decoding="async" draggable="false">
+            </picture>
+            <span class="win-glare"></span>
+          </div>
+          <figcaption><strong data-i18n="gallery.viseur.name">Crosshair Protection</strong> <span data-i18n="gallery.viseur.text">Votre viseur reste net. Formes intégrées ou zone dessinée à la main.</span></figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="win" tabindex="0">
+            <picture>
+              <source srcset="images/app-perfs-clair.png" media="(prefers-color-scheme: light)">
+              <img src="images/app-perfs-sombre.png" alt="" width="1380" height="880" decoding="async" draggable="false">
+            </picture>
+            <span class="win-glare"></span>
+          </div>
+          <figcaption><strong data-i18n="gallery.perfs.name">Performances</strong> <span data-i18n="gallery.perfs.text">Les vraies mesures du moteur, image par image.</span></figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="win" tabindex="0">
+            <picture>
+              <source srcset="images/app-parametres-clair.png" media="(prefers-color-scheme: light)">
+              <img src="images/app-parametres-sombre.png" alt="" width="1380" height="880" decoding="async" draggable="false">
+            </picture>
+            <span class="win-glare"></span>
+          </div>
+          <figcaption><strong data-i18n="gallery.parametres.name">Paramètres</strong> <span data-i18n="gallery.parametres.text">Thème, raccourcis clavier et touches des menus du jeu.</span></figcaption>
+        </figure>
+      </div>
+      </div>
+      <p class="gallery-hint" data-i18n="gallery.hint">Continuez à descendre pour parcourir les écrans. Faites glisser une fenêtre pour la tourner.</p>
+      </div>
+    </section>
+
+    <!-- Fonctions -->
+    <section id="fonctions" class="section">
+      <h2 data-i18n="features.title">Tout ce qu'il faut,<br>rien de plus.</h2>
+      <div class="bento">
+        <article class="card card-hero">
+          <p class="card-kicker">Motion Blur</p>
+          <h3 data-i18n="features.mb.title">Deux façons de flouter le mouvement</h3>
+          <p data-i18n="features.mb.text"><strong>Optical Flow</strong> mesure le déplacement de chaque zone de l'image et floute le long du mouvement. <strong>Frame Blending</strong> mélange les dernières images pour un rendu plus doux.</p>
+          <p class="big" data-i18n="features.mb.big">0,2<span> ms</span></p>
+          <p class="card-note" data-i18n="features.mb.note">Temps de calcul de Wooosh par image (RTX 5070 Ti, 144 Hz).</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker">Crosshair Protection</p>
+          <h3 data-i18n="features.ch.title">Votre viseur reste net</h3>
+          <p data-i18n="features.ch.text">Cercle, croix, point… ou dessinez votre propre zone. Enregistrez vos viseurs et changez-en en un clic.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker" data-i18n="features.pr.kicker">Profils de jeux</p>
+          <h3 data-i18n="features.pr.title">Un réglage par jeu</h3>
+          <p data-i18n="features.pr.text">Chaque jeu garde ses réglages. Wooosh les applique tout seul quand vous lancez la partie.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker" data-i18n="features.fl.kicker">Mode Flick</p>
+          <h3 data-i18n="features.fl.title">Net quand vous visez</h3>
+          <p data-i18n="features.fl.text">Le flou n'apparaît que sur les mouvements rapides : l'image reste précise quand vous ajustez votre visée.</p>
+        </article>
+        <article class="card">
+          <p class="card-kicker" data-i18n="features.hk.kicker">Raccourci</p>
+          <h3 data-i18n="features.hk.title">Une touche, c'est tout</h3>
+          <p data-i18n="features.hk.text">Activez ou coupez le Motion Blur avec <kbd>F9</kbd>, sans quitter le jeu. Le flou se retire tout seul dans les menus.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Comparaison avant / après -->
+    <section id="comparaison" class="section">
+      <h2 data-i18n="compare.title">Glissez pour voir<br>la différence.</h2>
+      <div class="compare" style="--pos: 50%">
+        <img src="images/apres.png" data-i18n-alt="compare.after.alt" alt="Image en mouvement avec le Motion Blur de Wooosh" width="960" height="540">
+        <div class="compare-before">
+          <img src="images/avant.png" data-i18n-alt="compare.before.alt" alt="La même image sans Motion Blur" width="960" height="540">
+        </div>
+        <span class="compare-tag tag-before" data-i18n="compare.before">Sans Wooosh</span>
+        <span class="compare-tag tag-after" data-i18n="compare.after">Avec Wooosh</span>
+        <div class="compare-handle" aria-hidden="true"><span></span></div>
+        <input class="compare-range" type="range" min="0" max="100" value="50" data-i18n-aria="compare.aria" aria-label="Position de la comparaison avant / après">
+      </div>
+      <p class="compare-note" data-i18n="compare.note">Scène de test animée, capturée en direct avec Optical Flow à 100 %.</p>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section id="comment" class="section">
+      <h2 data-i18n="how.title">Comment ça marche</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <h3 data-i18n="how.1.title">Capture</h3>
+          <p data-i18n="how.1.text">Wooosh récupère l'image de l'écran directement dans la mémoire de la carte graphique.</p>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <h3 data-i18n="how.2.title">Calcul</h3>
+          <p data-i18n="how.2.text">La carte graphique mesure le mouvement et applique le flou, sans passer par le processeur.</p>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <h3 data-i18n="how.3.title">Affichage</h3>
+          <p data-i18n="how.3.text">Le résultat s'affiche par-dessus le jeu, dans une fenêtre transparente qui laisse passer vos clics.</p>
+        </li>
+      </ol>
+      <p class="aside" data-i18n="how.aside">Wooosh ne modifie pas les fichiers du jeu et ne lit pas sa mémoire : il travaille uniquement sur l'image affichée à l'écran.</p>
+    </section>
+
+    <!-- Tarifs (prix provisoires) -->
+    <section id="tarifs" class="section">
+      <h2 data-i18n="pricing.title">Un abonnement simple.</h2>
+      <p class="section-lead" data-i18n="pricing.lead">7 jours d'essai gratuit, sans carte bancaire. Résiliable à tout moment.</p>
+      <div class="pricing">
+        <article class="plan">
+          <p class="card-kicker" data-i18n="pricing.monthly">Mensuel</p>
+          <p class="price" data-i18n="pricing.monthly.price">4,99 €<span> / mois</span></p>
+          <p class="plan-note" data-i18n="pricing.monthly.note">Sans engagement.</p>
+          <ul data-i18n="pricing.list">
+            <li>Motion Blur Optical Flow et Frame Blending</li>
+            <li>Crosshair Protection et viseurs personnalisés</li>
+            <li>Profils de jeux automatiques</li>
+            <li>Toutes les mises à jour</li>
+          </ul>
+          <button type="button" class="btn btn-ghost" data-buy="monthly" data-i18n="pricing.choose.monthly">Choisir Mensuel</button>
+        </article>
+        <article class="plan plan-best">
+          <p class="card-kicker"><span data-i18n="pricing.yearly">Annuel</span> <span class="badge" data-i18n="pricing.save">−33 %</span></p>
+          <p class="price" data-i18n="pricing.yearly.price">39,99 €<span> / an</span></p>
+          <p class="plan-note" data-i18n="pricing.yearly.note">Soit 3,33 € par mois.</p>
+          <ul data-i18n="pricing.list">
+            <li>Motion Blur Optical Flow et Frame Blending</li>
+            <li>Crosshair Protection et viseurs personnalisés</li>
+            <li>Profils de jeux automatiques</li>
+            <li>Toutes les mises à jour</li>
+          </ul>
+          <button type="button" class="btn" data-buy="yearly" data-i18n="pricing.choose.yearly">Choisir Annuel</button>
+        </article>
+      </div>
+      <p class="compare-note"><span data-i18n="pricing.terms">Prix TTC. Voir les</span> <a href="cgv.html" data-i18n="footer.terms">Conditions de vente</a>.</p>
+    </section>
+
+    <!-- Configuration -->
+    <section class="section specs">
+      <h2 data-i18n="specs.title">Configuration requise</h2>
+      <dl>
+        <div><dt data-i18n="specs.os">Système</dt><dd data-i18n="specs.os.v">Windows 10 (version 2004 ou plus récente) ou Windows 11</dd></div>
+        <div><dt data-i18n="specs.gpu">Carte graphique</dt><dd data-i18n="specs.gpu.v">Compatible DirectX 11</dd></div>
+        <div><dt data-i18n="specs.mode">Mode d'affichage du jeu</dt><dd data-i18n="specs.mode.v">Fenêtré plein écran (sans bordure)</dd></div>
+        <div><dt data-i18n="specs.install">Installation</dt><dd data-i18n="specs.install.v">Aucune : un seul fichier à lancer</dd></div>
+      </dl>
+    </section>
+
+    <!-- Questions -->
+    <section id="faq" class="section">
+      <h2 data-i18n="faq.title">Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary data-i18n="faq.1.q">Pourquoi le jeu doit-il être en fenêtré plein écran ?</summary>
+          <p data-i18n="faq.1.a">En plein écran exclusif, Windows ne laisse aucune fenêtre s'afficher par-dessus le jeu. En mode fenêtré sans bordure, Wooosh peut afficher son image floutée au-dessus.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.2.q">Est-ce que Wooosh ajoute de la latence ?</summary>
+          <p data-i18n="faq.2.a">Le calcul de Wooosh prend environ 0,2 ms. Le reste du délai vient de l'affichage par Windows et dépend des images par seconde du jeu : en général quelques millisecondes.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.3.q">Mes enregistrements OBS ou Discord seront-ils floutés ?</summary>
+          <p data-i18n="faq.3.a">Non. La fenêtre de Wooosh est exclue des captures : vos vidéos et vos partages d'écran montrent l'image d'origine, sans flou.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.4.q">Wooosh est-il autorisé dans tous les jeux ?</summary>
+          <p data-i18n="faq.4.a">Wooosh ne touche pas au jeu, mais chaque éditeur a ses propres règles. Vérifiez les conditions d'utilisation de votre jeu avant de l'utiliser en partie classée.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.5.q">Comment résilier mon abonnement ?</summary>
+          <p data-i18n="faq.5.a">À tout moment, depuis la page <a href="compte.html">Mon abonnement</a> (lien en bas de chaque page) ou depuis Wooosh, page Compte. Vous gardez Wooosh jusqu'à la fin de la période déjà payée.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Appel final -->
+    <section class="cta">
+      <img src="images/logo.svg" alt="" width="64" height="64">
+      <h2 data-i18n="cta.title">Prêt à essayer ?</h2>
+      <p data-i18n="cta.text">Choisissez votre formule, recevez votre clé d'accès et collez-la dans Wooosh.</p>
+      <a class="btn" href="#tarifs" data-i18n="nav.get">Obtenir Wooosh</a>
+    </section>
+  </main>
+
+  <!-- Paiement de DÉMONSTRATION (checkout.js) : aucun paiement réel, une vraie clé d'accès Wooosh est créée -->
+  <dialog class="checkout" aria-labelledby="checkout-title">
+    <button type="button" class="checkout-close" data-close data-i18n-aria="checkout.close" aria-label="Fermer">&times;</button>
+
+    <div class="checkout-step" data-step="pay">
+      <p class="demo-badge" data-i18n="checkout.demo">Démonstration · aucun paiement réel</p>
+      <h2 id="checkout-title" data-i18n="checkout.title">Finaliser la commande</h2>
+      <div class="checkout-summary">
+        <span class="checkout-plan"></span>
+        <strong class="checkout-price"></strong>
+      </div>
+      <form class="checkout-form" novalidate>
+        <label class="field">
+          <span data-i18n="checkout.email">Adresse e-mail</span>
+          <input type="email" class="checkout-email" autocomplete="email" placeholder="vous@exemple.fr" required>
+        </label>
+        <p class="field-error" hidden data-i18n="checkout.emailError">Entrez une adresse e-mail valide.</p>
+        <p class="checkout-note" data-i18n="checkout.note">Dans la vraie version, vous paierez ici par carte ou PayPal, chez notre prestataire de paiement. N'entrez aucune coordonnée bancaire : cette page est une démonstration.</p>
+        <button type="submit" class="btn checkout-pay"></button>
+      </form>
+    </div>
+
+    <div class="checkout-step checkout-wait" data-step="wait" hidden>
+      <span class="spinner" aria-hidden="true"></span>
+      <p data-i18n="checkout.wait">Paiement en cours…</p>
+    </div>
+
+    <div class="checkout-step" data-step="done" hidden>
+      <p class="demo-badge" data-i18n="checkout.demo">Démonstration · aucun paiement réel</p>
+      <h2 data-i18n="checkout.thanks">Merci ! Voici votre clé d'accès.</h2>
+      <p class="checkout-sent"></p>
+      <div class="key-box">
+        <code class="key-value"></code>
+        <button type="button" class="btn btn-small btn-ghost key-copy" data-i18n="checkout.copy">Copier</button>
+      </div>
+      <p class="key-exp"></p>
+      <ol class="next-steps" data-i18n="checkout.steps">
+        <li>Téléchargez et lancez Wooosh.</li>
+        <li>Collez votre clé dans l'écran « Bienvenue ».</li>
+        <li>Activez « Rester connecté » pour ne plus avoir à la retaper.</li>
+      </ol>
+      <div class="checkout-actions">
+        <span class="btn btn-soon" aria-disabled="true" data-i18n="checkout.download">Télécharger Wooosh (bientôt)</span>
+        <a class="btn btn-ghost" href="compte.html" data-i18n="footer.account">Mon abonnement</a>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <span>© 2026 Wooosh</span>
+    <nav class="footer-links">
+      <a href="mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+      <a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="cgv.html" data-i18n="footer.terms">Conditions de vente</a>
+      <a href="compte.html" data-i18n="footer.account">Mon abonnement</a>
+    </nav>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+  <script src="demo.js"></script>
+  <script src="license.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="account.pageTitle">Mon abonnement — Wooosh</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <img src="images/logo.svg" alt="" width="32" height="32">
+      <span>wooosh</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#fonctions" data-i18n="nav.features">Fonctions</a>
+      <a href="index.html#comparaison" data-i18n="nav.compare">Avant / après</a>
+      <a href="index.html#tarifs" data-i18n="nav.pricing">Tarifs</a>
+      <a href="index.html#faq" data-i18n="nav.faq">Questions</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr">FR</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+    <a class="btn btn-small" href="index.html#tarifs" data-i18n="nav.get">Obtenir Wooosh</a>
+  </header>
+
+  <!-- Espace client de DÉMONSTRATION (account.js). Pour la vraie vente : l'espace client de la plateforme de paiement. -->
+  <main class="legal account">
+    <h1 data-i18n="account.title">Mon abonnement</h1>
+    <p class="section-lead account-lead" data-i18n="account.lead">Collez votre clé d'accès pour voir votre formule et le temps restant, ou pour résilier.</p>
+
+    <form class="account-form" novalidate>
+      <label class="field">
+        <span data-i18n="account.key">Clé d'accès</span>
+        <input class="account-key" type="text" autocomplete="off" spellcheck="false" placeholder="WOOO-XXXXX-XXXXX-XXXXX-XXXXX">
+      </label>
+      <button type="submit" class="btn" data-i18n="account.show">Afficher</button>
+    </form>
+    <p class="field-error account-error" hidden></p>
+
+    <section class="sub-card" hidden>
+      <div class="sub-head">
+        <div>
+          <p class="card-kicker sub-plan"></p>
+          <p class="price sub-days"></p>
+        </div>
+        <span class="sub-badge"></span>
+      </div>
+      <div class="sub-bar"><span></span></div>
+      <div class="sub-dates"><span class="sub-start"></span><span class="sub-end"></span></div>
+      <p class="sub-key"></p>
+      <p class="sub-message"></p>
+      <div class="sub-actions">
+        <button type="button" class="btn btn-ghost sub-cancel"></button>
+      </div>
+    </section>
+
+    <section class="orders">
+      <h2 data-i18n="account.recent">Commandes passées sur ce navigateur</h2>
+      <ul class="order-list"></ul>
+    </section>
+
+    <p class="legal-summary account-demo" data-i18n="account.demo">Démonstration : aucun paiement réel. Dans la vraie version, cette page sera l'espace client de notre prestataire de paiement (factures, carte bancaire, résiliation).</p>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Wooosh</span>
+    <nav class="footer-links">
+      <a href="mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+      <a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="cgv.html" data-i18n="footer.terms">Conditions de vente</a>
+      <a href="compte.html" data-i18n="footer.account">Mon abonnement</a>
+    </nav>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="site.js"></script>
+  <script src="license.js"></script>
+  <script src="checkout.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>
